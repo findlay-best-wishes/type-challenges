@@ -20,7 +20,8 @@
 
 /* _____________ 你的代码 _____________ */
 
-type MyExclude<T, U> = any
+// 分配率
+type MyExclude<T, U> = T extends U ? never : T
 
 /* _____________ 测试用例 _____________ */
 import type { Equal, Expect } from '@type-challenges/utils'

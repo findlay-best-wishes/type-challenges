@@ -22,7 +22,14 @@
 
 /* _____________ 你的代码 _____________ */
 
-type MyAwaited<T> = any
+// interface PromiseLike {
+//   then: (resolve: (arg: any) => any) => void
+// }
+type MyAwaited<T extends PromiseLike<any>> = T extends PromiseLike<infer I>
+  ? I extends PromiseLike<any>
+    ? MyAwaited<I>
+    : I
+  : never
 
 /* _____________ 测试用例 _____________ */
 import type { Equal, Expect } from '@type-challenges/utils'

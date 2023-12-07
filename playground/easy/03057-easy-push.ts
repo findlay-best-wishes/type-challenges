@@ -18,7 +18,7 @@
 
 /* _____________ 你的代码 _____________ */
 
-type Push<T, U> = any
+type Push<T, U> = T extends Array<any> ? [...T, U] : never
 
 /* _____________ 测试用例 _____________ */
 import type { Equal, Expect } from '@type-challenges/utils'

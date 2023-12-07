@@ -18,7 +18,8 @@
 
 /* _____________ 你的代码 _____________ */
 
-type Concat<T, U> = any
+type Touple = Readonly<Array<any>>
+type Concat<T extends Touple, U extends Touple> = [...T, ...U]
 
 /* _____________ 测试用例 _____________ */
 import type { Equal, Expect } from '@type-challenges/utils'
